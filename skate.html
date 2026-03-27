@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lo Skate — Vicky's House</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Josefin+Sans:wght@100;200;300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --lilla: #9470CE;
+    --lilla-light: #b99de0;
+    --yellow: #EFCF20;
+    --yellow-dark: #c8ad10;
+    --yellow-glow: rgba(239,207,32,.5);
+
+    /* Skate palette — urban, bold, raw */
+    --s-dark: #0e0e14;
+    --s-mid:  #1a1a28;
+    --s-concrete: #2a2a3a;
+    --s-yellow: #EFCF20;
+    --s-orange: #e08020;
+    --s-accent: #c4a000;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+  body { font-family: 'Josefin Sans', sans-serif; background: var(--s-dark); color: white; overflow-x: hidden; cursor: none; }
+
+  /* CURSOR */
+  .cursor { position: fixed; width: 10px; height: 10px; background: var(--s-yellow); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); mix-blend-mode: screen; transition: width .3s,height .3s; }
+  .cursor-ring { position: fixed; width: 34px; height: 34px; border: 1px solid rgba(239,207,32,.5); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: width .3s,height .3s,opacity .3s; opacity: .5; }
+  .cursor.hover { width: 18px; height: 18px; }
+  .cursor-ring.hover { width: 50px; height: 50px; opacity: .25; }
+
+  /* PROGRESS */
+  .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--lilla), var(--s-yellow), var(--s-orange)); z-index: 2000; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 48px; display: flex; justify-content: space-between; align-items: center; transition: all .5s; }
+  nav.scrolled { background: rgba(14,14,20,0.92); backdrop-filter: blur(20px); padding: 14px 48px; border-bottom: 1px solid rgba(239,207,32,.08); }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: rgba(255,255,255,.8); text-decoration: none; letter-spacing: .04em; }
+  .nav-logo span { color: var(--s-yellow); }
+  .nav-passion-label { font-size: .6rem; letter-spacing: .25em; text-transform: uppercase; color: var(--s-yellow); opacity: .8; }
+  .nav-back { display: flex; align-items: center; gap: 10px; font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.4); text-decoration: none; transition: color .3s,gap .3s; }
+  .nav-back:hover { color: var(--s-yellow); gap: 16px; }
+
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0) rotate(0deg); } }
+  @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.4} }
+
+  /* HERO — raw, urban */
+  .hero { height: 100vh; position: relative; overflow: hidden; display: flex; align-items: center; }
+  .hero-bg { position: absolute; inset: 0; background: linear-gradient(160deg, var(--s-dark) 0%, #141420 40%, #1c1c2e 100%); }
+  #heroCanvas { position: absolute; inset: 0; }
+
+  /* DIAGONAL STRIPE */
+  .hero-stripe { position: absolute; top: -20%; right: -5%; width: 55%; height: 140%; background: linear-gradient(135deg, transparent 40%, rgba(239,207,32,.04) 40%, rgba(239,207,32,.06) 60%, transparent 60%); pointer-events: none; }
+
+  .hero-content { position: relative; z-index: 2; padding: 0 80px; max-width: 900px; }
+  .hero-eyebrow { font-size: .62rem; letter-spacing: .35em; text-transform: uppercase; color: var(--s-yellow); margin-bottom: 24px; opacity: 0; transform: translateY(20px); animation: fadeUp .8s ease .3s forwards; display: flex; align-items: center; gap: 14px; }
+  .hero-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--s-yellow); }
+  .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(5.5rem,13vw,12rem); font-weight: 300; line-height: .85; margin-bottom: 28px; opacity: 0; transform: translateY(30px); animation: fadeUp 1s ease .5s forwards; }
+  .hero-title .lo { display: block; font-size: .4em; letter-spacing: .08em; color: rgba(255,255,255,.5); font-style: normal; }
+  .hero-title em { font-style: italic; color: var(--s-yellow); display: block; }
+  .hero-sub { font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.35); max-width: 380px; line-height: 1.8; opacity: 0; transform: translateY(20px); animation: fadeUp .8s ease .9s forwards; }
+
+  /* GROUND LINE */
+  .hero-ground { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--s-yellow), rgba(239,207,32,.3), transparent); opacity: .4; }
+  .hero-scroll { position: absolute; bottom: 40px; right: 80px; display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0; animation: fadeUp .8s ease 1.2s forwards; }
+  .hero-scroll span { font-size: .55rem; letter-spacing: .3em; text-transform: uppercase; color: rgba(255,255,255,.3); writing-mode: vertical-lr; }
+  .scroll-line { width: 1px; height: 50px; background: linear-gradient(to bottom, var(--s-yellow), transparent); animation: pulse 2s ease infinite; }
+
+  /* REVEALS */
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal-left.visible { opacity: 1; transform: translateX(0); }
+  .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+  /* INTRO */
+  .intro { padding: 140px 80px; background: linear-gradient(180deg, var(--s-dark) 0%, var(--s-mid) 100%); }
+  .intro-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+  .intro-text .section-label { font-size: .62rem; letter-spacing: .3em; text-transform: uppercase; color: var(--s-yellow); display: block; margin-bottom: 20px; }
+  .intro-text h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem,4vw,3.8rem); font-weight: 300; line-height: 1.15; margin-bottom: 32px; }
+  .intro-text h2 em { font-style: italic; color: var(--s-yellow); }
+  .intro-text p { font-size: .8rem; line-height: 2; color: rgba(255,255,255,.55); letter-spacing: .04em; margin-bottom: 20px; }
+
+  /* TRICK CARDS */
+  .tricks-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .trick-card { padding: 24px; border-radius: 16px; background: rgba(255,255,255,.03); border: 1px solid rgba(239,207,32,.08); transition: all .4s; cursor: none; position: relative; overflow: hidden; }
+  .trick-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, var(--s-yellow), transparent); transform: scaleX(0); transition: transform .4s; transform-origin: left; }
+  .trick-card:hover { background: rgba(239,207,32,.06); border-color: rgba(239,207,32,.2); transform: translateY(-4px); }
+  .trick-card:hover::before { transform: scaleX(1); }
+  .trick-icon { font-size: 1.8rem; margin-bottom: 10px; }
+  .trick-name { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 400; color: rgba(255,255,255,.9); margin-bottom: 6px; }
+  .trick-desc { font-size: .65rem; color: rgba(255,255,255,.35); letter-spacing: .06em; line-height: 1.7; }
+
+  /* QUOTE */
+  .parallax-quote { padding: 180px 80px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .pq-bg-gradient { position: absolute; inset: 0; background: linear-gradient(135deg, #0e0e14 0%, #1e1a04 50%, #0e0e14 100%); }
+  .pq-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(239,207,32,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(239,207,32,.04) 1px, transparent 1px); background-size: 60px 60px; }
+  .pq-bg-text { position: absolute; font-family: 'Cormorant Garamond', serif; font-size: 20vw; font-weight: 600; color: rgba(239,207,32,.03); white-space: nowrap; pointer-events: none; will-change: transform; }
+  .pq-content { position: relative; z-index: 2; text-align: center; max-width: 720px; }
+  .pq-mark { font-family: 'Cormorant Garamond', serif; font-size: 7rem; color: var(--s-yellow); line-height: .5; margin-bottom: 20px; display: block; opacity: .5; }
+  .pq-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem,3.5vw,3rem); font-style: italic; font-weight: 300; color: rgba(255,255,255,.9); line-height: 1.55; margin-bottom: 28px; }
+  .pq-author { font-size: .62rem; letter-spacing: .3em; text-transform: uppercase; color: var(--s-yellow); }
+
+  /* SCROLLYTELLING */
+  .scrolly { height: 280vh; position: relative; }
+  .scrolly-sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+  .s-bg { position: absolute; inset: 0; background: linear-gradient(160deg, var(--s-mid) 0%, #16160c 100%); }
+  .scrolly-step { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 0 80px; opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+  .scrolly-step.active { opacity: 1; transform: translateY(0); }
+  .scrolly-inner { text-align: center; max-width: 680px; }
+  .step-num { font-family: 'Cormorant Garamond', serif; font-size: 7rem; font-weight: 600; color: rgba(239,207,32,.05); line-height: 1; margin-bottom: -36px; }
+  .step-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem,4vw,3.2rem); font-weight: 300; line-height: 1.2; margin-bottom: 20px; }
+  .step-title em { font-style: italic; color: var(--s-yellow); }
+  .step-body { font-size: .8rem; line-height: 2; color: rgba(255,255,255,.5); letter-spacing: .04em; }
+  .step-emoji { font-size: 3rem; margin-bottom: 16px; display: block; }
+  .scrolly-dots { position: absolute; bottom: 48px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; }
+  .sdot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.15); transition: all .3s; }
+  .sdot.active { width: 24px; border-radius: 4px; background: var(--s-yellow); }
+
+  /* GALLERY */
+  .gallery-sec { padding: 140px 0; background: var(--s-dark); overflow: hidden; }
+  .gallery-head { text-align: center; margin-bottom: 64px; padding: 0 80px; }
+  .gallery-head .section-label { font-size: .62rem; letter-spacing: .3em; text-transform: uppercase; color: var(--s-yellow); display: block; margin-bottom: 16px; }
+  .gallery-head h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem,4vw,3.8rem); font-weight: 300; }
+  .gallery-head h2 em { font-style: italic; color: var(--s-yellow); }
+  .gallery-track { display: flex; gap: 20px; padding: 0 80px; }
+  .g-item { flex-shrink: 0; width: 300px; height: 380px; border-radius: 16px; overflow: hidden; position: relative; transition: transform .4s ease; }
+  .g-item:hover { transform: scale(1.04) translateY(-6px); }
+  .g-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; }
+  .g-ph1 { background: linear-gradient(135deg, #1e1c04, #3a3810); }
+  .g-ph2 { background: linear-gradient(135deg, #14140e, #2a280a); }
+  .g-ph3 { background: linear-gradient(135deg, #201e06, #40380c); }
+  .g-ph4 { background: linear-gradient(135deg, #18160a, #302c0e); }
+  .g-ph5 { background: linear-gradient(135deg, #1c1a06, #38340e); }
+  .g-placeholder .icon { font-size: 2.2rem; opacity: .4; }
+  .g-placeholder span { font-size: .65rem; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.3); }
+  .g-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(14,14,20,.85) 0%, transparent 55%); display: flex; align-items: flex-end; padding: 20px; opacity: 0; transition: opacity .4s; }
+  .g-item:hover .g-overlay { opacity: 1; }
+  .g-overlay span { font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.7); }
+
+  /* EVENTS */
+  .events-sec { padding: 140px 80px; background: var(--s-mid); }
+  .events-inner { max-width: 1100px; margin: 0 auto; }
+  .events-head { margin-bottom: 56px; }
+  .events-head .section-label { font-size: .62rem; letter-spacing: .3em; text-transform: uppercase; color: var(--s-yellow); display: block; margin-bottom: 14px; }
+  .events-head h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem,4vw,3.5rem); font-weight: 300; }
+  .events-head h2 em { font-style: italic; color: var(--s-yellow); }
+  .events-list { display: flex; flex-direction: column; gap: 16px; }
+  .ev-card { display: grid; grid-template-columns: 70px 1fr; gap: 28px; align-items: center; padding: 28px 32px; border-radius: 14px; background: rgba(255,255,255,.03); border: 1px solid rgba(239,207,32,.06); text-decoration: none; color: inherit; transition: all .4s; opacity: 0; transform: translateX(-24px); }
+  .ev-card.visible { opacity: 1; transform: translateX(0); }
+  .ev-card:hover { background: rgba(239,207,32,.06); border-color: rgba(239,207,32,.2); transform: translateX(8px); }
+  .ev-date .day { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 600; color: var(--s-yellow); line-height: 1; }
+  .ev-date .month { font-size: .58rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.3); }
+  .ev-info h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; margin-bottom: 5px; }
+  .ev-info p { font-size: .7rem; color: rgba(255,255,255,.35); letter-spacing: .06em; }
+
+  /* FOOTER CTA */
+  .footer-cta { padding: 120px 80px; text-align: center; background: var(--s-dark); border-top: 1px solid rgba(239,207,32,.06); }
+  .footer-cta .section-label { font-size: .62rem; letter-spacing: .3em; text-transform: uppercase; color: var(--s-yellow); display: block; margin-bottom: 20px; }
+  .footer-cta h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem,5vw,4rem); font-weight: 300; margin-bottom: 20px; }
+  .footer-cta h2 em { font-style: italic; color: var(--s-yellow); }
+  .footer-cta p { font-size: .8rem; line-height: 2; color: rgba(255,255,255,.4); max-width: 500px; margin: 0 auto 48px; }
+  .back-btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 48px; border: 1px solid rgba(239,207,32,.25); border-radius: 4px; color: white; text-decoration: none; font-size: .65rem; letter-spacing: .22em; text-transform: uppercase; transition: all .4s; }
+  .back-btn:hover { background: rgba(239,207,32,.08); border-color: var(--s-yellow); gap: 18px; }
+
+  .mini-footer { padding: 32px 80px; background: var(--s-dark); display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,.03); }
+  .mini-footer p { font-size: .65rem; letter-spacing: .08em; color: rgba(255,255,255,.25); }
+  .mini-footer .heart { color: var(--s-yellow); }
+
+  @media (max-width: 900px) {
+    .intro-inner { grid-template-columns: 1fr; gap: 56px; }
+    .tricks-grid { grid-template-columns: 1fr; }
+    nav,nav.scrolled { padding: 16px 24px; }
+    .hero-content { padding: 0 32px; }
+    .intro,.footer-cta,.events-sec { padding-left: 32px; padding-right: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar" style="width:0%"></div>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav id="navbar">
+  <a href="#" class="nav-logo"><img style="height: 37px;" src="logo.png" alt="Vicky's House"></a>
+  <span class="nav-passion-label">🛹 Lo Skate</span>
+  <a href="index.html#passioni" class="nav-back">← Torna alle passioni</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <canvas id="heroCanvas"></canvas>
+  <div class="hero-stripe"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Le passioni di Vicky · 02</p>
+    <h1 class="hero-title">
+      <span class="lo">Lo</span>
+      <em>Skate</em>
+    </h1>
+    <p class="hero-sub">Quattro ruote. Nessun limite. La libertà è uno stato della mente.</p>
+  </div>
+  <div class="hero-ground"></div>
+  <div class="hero-scroll">
+    <span>Scorri</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="intro-inner">
+    <div class="intro-text reveal-left">
+      <span class="section-label">La sua storia con lo skate</span>
+      <h2>Cadere e rialzarsi era<br>il suo <em>sport preferito</em></h2>
+      <p>Vicky salì su uno skateboard per la prima volta sfidando tutti quelli che le dissero che non era "roba da ragazze". Lo skate per lei era libertà, era coraggio, era la prova tangibile che ci si può sempre rialzare.</p>
+      <p>Le sue cadute erano parte del processo. Ogni abrasione era un badge d'onore. Ogni trick riuscito — dopo dieci tentativi falliti — era una piccola vittoria contro se stessa.</p>
+    </div>
+    <div class="intro-visual reveal-right">
+      <div class="tricks-grid">
+        <div class="trick-card"><div class="trick-icon">🛹</div><div class="trick-name">Ollie</div><div class="trick-desc">Il salto base. Il punto di partenza di tutto.</div></div>
+        <div class="trick-card"><div class="trick-icon">🌀</div><div class="trick-name">Kickflip</div><div class="trick-desc">La tavola ruota, il cuore vola.</div></div>
+        <div class="trick-card"><div class="trick-icon">⚡</div><div class="trick-name">Manual</div><div class="trick-desc">Equilibrio puro. Controllo totale.</div></div>
+        <div class="trick-card"><div class="trick-icon">🏄</div><div class="trick-name">Grind</div><div class="trick-desc">Scivolare sui bordi del mondo.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARALLAX QUOTE -->
+<div class="parallax-quote" id="pQuote">
+  <div class="pq-bg-gradient"></div>
+  <div class="pq-grid"></div>
+  <div class="pq-bg-text" id="pqBg">SKATE</div>
+  <div class="pq-content reveal">
+    <span class="pq-mark">"</span>
+    <p class="pq-text">Non importa quante volte cadi. Importa quanto in fretta rimetti le ruote sull'asfalto.</p>
+    <p class="pq-author">— Vicky, ogni volta che si rialzava</p>
+  </div>
+</div>
+
+<!-- SCROLLYTELLING 
+<div class="scrolly" id="scrollyEl">
+  <div class="scrolly-sticky">
+    <div class="s-bg"></div>
+    <div class="scrolly-step" id="ds0">
+      <div class="scrolly-inner">
+        <div class="step-num">01</div>
+        <span class="step-emoji">🛹</span>
+        <h2 class="step-title">L'<em>asfalto</em> come palcoscenico</h2>
+        <p class="step-body">Il parco sotto casa, il bordo del marciapiede, la rampa dell'oratorio. Per Vicky ogni superficie liscia era un palcoscenico. La città era la sua sala prove.</p>
+      </div>
+    </div>
+    <div class="scrolly-step" id="ds1">
+      <div class="scrolly-inner">
+        <div class="step-num">02</div>
+        <span class="step-emoji">🤝</span>
+        <h2 class="step-title">La <em>crew</em> come famiglia</h2>
+        <p class="step-body">Nel mondo dello skate Vicky aveva trovato una tribù: ragazze e ragazzi che si aiutavano, si incoraggiavano, si filmavano i trick. Una comunità che non giudicava — accoglieva.</p>
+      </div>
+    </div>
+    <div class="scrolly-step" id="ds2">
+      <div class="scrolly-inner">
+        <div class="step-num">03</div>
+        <span class="step-emoji">🌟</span>
+        <h2 class="step-title">L'<em>eredità</em> sui pattini</h2>
+        <p class="step-body">Oggi organizziamo jam di skate in suo nome, con un'attenzione speciale all'inclusione. Vogliamo che ogni ragazza sappia che quella tavola sotto i piedi può portarla ovunque voglia andare.</p>
+      </div>
+    </div>
+    <div class="scrolly-dots">
+      <div class="sdot active" data-step="0"></div>
+      <div class="sdot" data-step="1"></div>
+      <div class="sdot" data-step="2"></div>
+    </div>
+  </div>
+</div> -->
+
+<!-- GALLERY -->
+<section class="gallery-sec">
+  <div class="gallery-head reveal">
+    <span class="section-label">Sull'asfalto</span>
+    <h2>La sua <em>galleria</em></h2>
+  </div>
+  <div class="gallery-track" id="galleryTrack">
+    <div class="g-item"><div class="g-placeholder g-ph1"><span class="icon">🛹</span><span>Skate Jam 2024</span></div><div class="g-overlay"><span>Agosto 2024</span></div></div>
+    <div class="g-item"><div class="g-placeholder g-ph2"><span class="icon">⚡</span><span>Primo Kickflip</span></div><div class="g-overlay"><span>Primavera 2023</span></div></div>
+    <div class="g-item"><div class="g-placeholder g-ph3"><span class="icon">🌀</span><span>Rampa Estiva</span></div><div class="g-overlay"><span>Luglio 2023</span></div></div>
+    <div class="g-item"><div class="g-placeholder g-ph4"><span class="icon">🏄</span><span>Parco Comunale</span></div><div class="g-overlay"><span>Settembre 2022</span></div></div>
+    <div class="g-item"><div class="g-placeholder g-ph5"><span class="icon">✨</span><span>Freestyle</span></div><div class="g-overlay"><span>Giugno 2022</span></div></div>
+  </div>
+</section>
+
+<!-- EVENTI -->
+<section class="events-sec">
+  <div class="events-inner">
+    <div class="events-head reveal">
+      <span class="section-label">In suo nome</span>
+      <h2>Eventi di <em>skate</em></h2>
+    </div>
+    <div class="events-list">
+      <a href="#" class="ev-card"><div class="ev-date"><div class="day">03</div><div class="month">Mag</div></div><div class="ev-info"><h3>Vicky's Skate Jam — Edizione 2026</h3><p>📍 Skatepark Centrale — Tutto il giorno</p></div></a>
+      <a href="#" class="ev-card"><div class="ev-date"><div class="day">17</div><div class="month">Mag</div></div><div class="ev-info"><h3>Workshop Skate per Ragazze</h3><p>📍 Parco Fluviale — ore 14:00</p></div></a>
+      <a href="#" class="ev-card"><div class="ev-date"><div class="day">29</div><div class="month">Giu</div></div><div class="ev-info"><h3>Jam Estiva + Musica Live</h3><p>📍 Area Sportiva Sud — ore 16:00</p></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER CTA -->
+<div class="footer-cta reveal">
+  <span class="section-label">Continua a esplorare</span>
+  <h2>Scopri le altre <em>passioni</em></h2>
+  <p>Lo skate era solo uno dei modi in cui Vicky sfidava la gravità. Scopri la danza e gli scout per conoscerla ancora.</p>
+  <a href="index.html#passioni" class="back-btn">← Torna alle passioni</a>
+</div>
+
+<footer class="mini-footer">
+  <p>© 2026 Vicky's House APS</p>
+  <p>Fatto con <span class="heart">♥</span> per Vicky</p>
+</footer>
+
+<script>
+const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+(function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);})();
+document.querySelectorAll('a,button,.trick-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cursor.classList.add('hover');ring.classList.add('hover');});
+  el.addEventListener('mouseleave',()=>{cursor.classList.remove('hover');ring.classList.remove('hover');});
+});
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  document.getElementById('progressBar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>60);
+});
+
+// HERO CANVAS — speeding lines (speed blur effect)
+const hc=document.getElementById('heroCanvas'),hx=hc.getContext('2d');
+let hw,hh;
+function resH(){hw=hc.width=window.innerWidth;hh=hc.height=window.innerHeight;}
+resH();window.addEventListener('resize',resH);
+
+class SpeedLine {
+  constructor(){this.reset();}
+  reset(){this.y=Math.random()*hh;this.x=hw+Math.random()*200;this.l=Math.random()*180+60;this.speed=Math.random()*8+4;this.o=Math.random()*0.15+0.02;this.w=Math.random()*1.5+0.3;this.col=Math.random()<.6?`rgba(239,207,32,${this.o})`:`rgba(255,255,255,${this.o*.5})`;}
+  update(){this.x-=this.speed;if(this.x+this.l<0)this.reset();}
+  draw(){hx.beginPath();hx.moveTo(this.x,this.y);hx.lineTo(this.x+this.l,this.y);hx.strokeStyle=this.col;hx.lineWidth=this.w;hx.stroke();}
+}
+const lines=Array.from({length:55},()=>new SpeedLine());
+lines.forEach(l=>l.x=Math.random()*hw);
+(function animH(){hx.clearRect(0,0,hw,hh);lines.forEach(l=>{l.update();l.draw();});requestAnimationFrame(animH);})();
+
+// PARALLAX
+const pqBg=document.getElementById('pqBg'),pq=document.getElementById('pQuote');
+window.addEventListener('scroll',()=>{const r=pq.getBoundingClientRect(),p=-r.top/(r.height+hh);pqBg.style.transform=`translateX(${p*100}px)`;});
+
+// REVEALS
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.15});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.ev-card').forEach(el=>obs.observe(el));
+
+// SCROLLYTELLING
+const se=document.getElementById('scrollyEl');
+const steps=document.querySelectorAll('.scrolly-step');
+const dots=document.querySelectorAll('.sdot');
+function updScrolly(){
+  const r=se.getBoundingClientRect();
+  const travel=se.offsetHeight-hh;
+  if(travel<=0)return;
+  const scrolled=-r.top;
+  const p=Math.max(0,Math.min(0.999,scrolled/travel));
+  const i=Math.floor(p*steps.length);
+  steps.forEach((s,j)=>s.classList.toggle('active',j===i));
+  dots.forEach((d,j)=>d.classList.toggle('active',j===i));
+}
+window.addEventListener('scroll',updScrolly,{passive:true});
+updScrolly();
+
+// GALLERY
+const track=document.getElementById('galleryTrack');
+let gx=0,tgx=0;
+window.addEventListener('scroll',()=>{const sec=document.querySelector('.gallery-sec');const r=sec.getBoundingClientRect();const p=Math.max(0,Math.min(1,-r.top/(sec.offsetHeight-hh*.5)));tgx=-p*(track.scrollWidth-track.parentElement.offsetWidth)*.6;});
+(function animG(){gx+=(tgx-gx)*.08;track.style.transform=`translateX(${gx}px)`;requestAnimationFrame(animG);})();
+</script>
+</body>
+</html>

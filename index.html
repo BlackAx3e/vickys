@@ -1,198 +1,2025 @@
+<!DOCTYPE html>
 <html lang="it">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Vicky's House - Celebriamo la vita</title>
-		<meta name="description" content="Vicky's House: un luogo di comunità dove si celebra la vita, la gentilezza e il futuro."/>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-		<link rel="stylesheet" href="styles.css" />
-	</head>
-	<body>
-		<div class="parallax" aria-hidden="true">
-			<span class="parallax-layer orb orb--one" data-speed="0.12"></span>
-			<span class="parallax-layer orb orb--two" data-speed="0.2"></span>
-			<span class="parallax-layer orb orb--three" data-speed="0.16"></span>
-			<span class="parallax-layer ring ring--one" data-speed="0.08"></span>
-			<span class="parallax-layer grid grid--one" data-speed="0.04"></span>
-		</div>
-		<header class="site-header">
-			<nav class="nav">
-				<a class="logo" href="#top" aria-label="Vicky's House">
-					<img class="logo-image" src="logo.png" alt="Logo Vicky's House" />
-				</a>
-				<div class="nav-links">
-				  <a href="#storia">Progetti</a>
-				  <a href="#calendario">Eventi</a>
-				  <a href="#unisciti">Unisciti</a>
-				</div>
-				<div class="nav-actions">
-					<a class="button button-primary" href="#unisciti">Dona ora</a>
-				</div>
-			</nav>
-		</header>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vicky's House</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Josefin+Sans:wght@100;200;300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --lilla: #9470CE;
+    --lilla-light: #b99de0;
+    --lilla-dark: #6a4fa0;
+    --lilla-pale: #e8dff7;
+    --yellow: #EFCF20;
+    --yellow-light: #f7e87a;
+    --yellow-dark: #c8ad10;
+    --bg: #f0eaf8;
+    --bg-dark: #e2d7f0;
+    --text: #2a1f42;
+    --text-light: #5a4a7a;
+    --white: #faf8ff;
+    --shadow-light: rgba(255, 255, 255, 0.85);
+    --shadow-dark: rgba(148, 112, 206, 0.25);
+  }
 
-		<main id="top">
-			<section class="hero page-section" id="hero">
-				<div class="hero-inner">
-					<div class="hero-content reveal">
-						<p class="eyebrow">Celebriamo la vita</p>
-						<h1>Un ricordo che si trasforma in energia, cura e futuro.</h1>
-						<p class="lead">
-						  Vicky's House nasce per onorare una giovane ragazza che non c'è più, la nostra Vittoria. Lo facciamo
-						  scegliendo la luce: progetti, relazioni e gesti concreti che continuano a farla
-						  vivere nel bene che costruiamo insieme.
-						</p>
-						<div class="hero-actions">
-						  <a class="button button-primary" href="#unisciti">Sostieni la missione</a>
-						  <a class="button button-ghost" href="#storia">Scopri la storia</a>
-						</div>
-					</div>
-					<div class="hero-visual reveal">
-						<div class="tilt-scene">
-							<div class="tilt-card glass strong" data-tilt>
-								<div class="tilt-layer">
-									<p class="card-kicker">Il nostro simbolo</p>
-									<h3>Girasoli e luce gentile</h3>
-									<p>
-										Il lilla, colore preferito di Vicky, incontra il giallo dei suoi girasoli: insieme diventano un segno di vita che continua.
-									</p>
-									<div>
-										<span class="chip">#9470CE</span>
-										<span class="chip" style="color:#EFCF20">#EFCF20</span>
-									</div>
-									<div class="card-metrics">
-										<div>
-											<span class="metric">0</span>
-											<span>progetti avviati</span>
-										</div>
-										<div>
-											<span class="metric">40+</span>
-											<span>volontari coinvolti</span>
-										</div>
-									</div>
-								</div>
-								<div class="card-orbit parallax" data-parallax data-speed="0.5"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-			<section id="storia" class="scrolly page-section">
-				<!-- cose cose cose -->
-			</section>
+  html { scroll-behavior: smooth; overflow-x: hidden; }
 
-			<section id="progetti" class="section page-section">
-				<div class="section-heading reveal">
-					<p class="eyebrow">Progetti</p>
-					<h2>Progetti che si incastrano come un mosaico di vita.</h2>
-				</div>
-				<div class="bento-grid">
-					<article class="bento-card span-7 row-2 reveal">
-						<h3>Laboratori</h3>
-						<p>
-							Percorsi di danza, skateboard e lettura per accompagnare i giovani a scoprire la
-							propria voce.
-						</p>
-						<span class="tag">In partenza</span>
-					</article>
-					<article class="bento-card span-5 reveal">
-						<h3>Casa Aperta</h3>
-						<p>Incontri mensili di ascolto, condivisione e comunità intergenerazionale.</p>
-					</article>
-					<article class="bento-card span-4 reveal">
-						<h3>Biblioteca viva</h3>
-						<p>Spazi di lettura e dialogo per riscoprire storie che ispirano.</p>
-					</article>
-				</div>
-			</section>
+  body {
+    font-family: 'Josefin Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    cursor: none;
+  }
 
-			<section id="calendario" class="section page-section">
-				<div class="section-heading reveal">
-					<p class="eyebrow">Eventi</p>
-					<h2>Calendario che racconta il presente.</h2>
-				</div>
-				<div class="timeline">
-					<div class="timeline-item reveal">
-						<div class="timeline-date">20 aprile</div>
-						<div>
-							<h3>Compleanno di Vicky</h3>
-							<p>Oratorio Ceredo - una serata di condivisione e amicizia piena di cibo e giochi per tutte le età.</p>
-						</div>
-					</div>
-					<div class="timeline-item reveal">
-						<div class="timeline-date">8 giugno</div>
-						<div>
-							<h3>Camminata</h3>
-							<p>Lecco - passeggiata collettiva per il lago di Como</p>
-						</div>
-					</div>
-				</div>
-			</section>
+  /* CUSTOM CURSOR */
+  .cursor {
+    position: fixed;
+    width: 12px; height: 12px;
+    background: var(--yellow);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease;
+    mix-blend-mode: multiply;
+  }
+  .cursor-ring {
+    position: fixed;
+    width: 36px; height: 36px;
+    border: 1.5px solid var(--lilla);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+    opacity: 0.7;
+  }
+  .cursor.hover { width: 20px; height: 20px; background: var(--lilla); }
+  .cursor-ring.hover { width: 52px; height: 52px; opacity: 0.4; }
 
-			<section id="unisciti" class="section page-section">
-				<div class="join-content">
-					<div class="reveal">
-						<p class="eyebrow">Unisciti a noi</p>
-							<h2>Tre modi per esserci.</h2>
-						<p>
-							Ogni gesto conta: puoi sostenere i progetti, offrire il tuo tempo o diffondere la
-							nostra voce.
-						</p>
-						<ul class="join-list">
-							<li>Diventa volontario durante gli eventi e i laboratori.</li>
-							<li>Attiva una donazione mensile per le borse di studio.</li>
-							<li>Proponi un'idea o un progetto condiviso.</li>
-						</ul>
-					</div>
-					<form class="join-form glass reveal" aria-label="Contatto associazione">
-						<label>
-							Nome e cognome
-							<input type="text" name="name" placeholder="Es. Giulia Rossi" required />
-						</label>
-						<label>
-							Email
-							<input type="email" name="email" placeholder="tuo@email.it" required />
-						</label>
-						<label>
-							Come vuoi contribuire?
-							<select name="role">
-								<option>Volontariato</option>
-								<option>Donazione</option>
-								<option>Proposta progetto</option>
-								<option>Altro</option>
-							</select>
-						</label>
-						<label>
-							Messaggio
-							<textarea name="message" rows="4" placeholder="Raccontaci la tua idea"></textarea>
-						</label>
-						<button class="button button-primary" type="submit">Invia la tua adesione</button>
-						<p class="form-note">Rispondiamo entro 48 ore con tutte le informazioni utili.</p>
-					</form>
-				</div>
-			</section>
-		</main>
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 20px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.5s ease;
+  }
+  nav.scrolled {
+    background: rgba(240, 234, 248, 0.85);
+    backdrop-filter: blur(20px);
+    padding: 14px 48px;
+    box-shadow: 0 4px 30px rgba(148, 112, 206, 0.12);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--lilla-dark);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--yellow-dark); }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0;
+    width: 0; height: 1px;
+    background: var(--yellow);
+    transition: width 0.4s ease;
+  }
+  .nav-links a:hover { color: var(--lilla); }
+  .nav-links a:hover::after { width: 100%; }
 
-		<footer class="site-footer">
-			<div>
-				<h3>Vicky's House</h3>
-				<p>Un ricordo che si trasforma in cura, comunità e futuro.</p>
-			</div>
-			<div class="footer-links">
-				<a href="#storia">Storia</a>
-				<a href="#progetti">Progetti</a>
-				<a href="#calendario">Eventi</a>
-				<a href="#unisciti">Unisciti</a>
-			</div>
-			<div class="footer-contact">
-				<p>info@vickyshouse.org</p>
-				<p>Via Cadore 76, 20831 Seregno</p>
-			</div>
-		</footer>
+  /* HERO */
+  .hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
 
-		<script src="script.js"></script>
-	</body>
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 30% 40%, rgba(148,112,206,0.18) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 50% at 75% 65%, rgba(239,207,32,0.15) 0%, transparent 55%),
+                linear-gradient(160deg, #f5f0ff 0%, #ede4f8 50%, #f8f2e8 100%);
+  }
+
+  /* Floating petals */
+  .petals-container {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .petal {
+    position: absolute;
+    border-radius: 50% 0 50% 0;
+    animation: floatPetal linear infinite;
+    opacity: 0;
+  }
+
+  @keyframes floatPetal {
+    0% { transform: translateY(-20px) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.6; }
+    90% { opacity: 0.4; }
+    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 24px;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--lilla);
+    margin-bottom: 24px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease 0.3s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(4rem, 10vw, 9rem);
+    font-weight: 300;
+    line-height: 0.9;
+    color: var(--text);
+    margin-bottom: 24px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 1s ease 0.5s forwards;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--lilla);
+  }
+  .hero-title .accent { color: var(--yellow-dark); }
+
+  .hero-subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 56px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease 0.8s forwards;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 40px;
+    background: var(--lilla);
+    color: white;
+    text-decoration: none;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    border-radius: 50px;
+    box-shadow: 8px 8px 20px var(--shadow-dark), -4px -4px 12px var(--shadow-light);
+    transition: all 0.4s ease;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 1.1s forwards;
+  }
+  .hero-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 12px 16px 28px var(--shadow-dark), -4px -4px 16px var(--shadow-light);
+    background: var(--lilla-dark);
+  }
+  .hero-cta svg { transition: transform 0.3s ease; }
+  .hero-cta:hover svg { transform: translateX(4px); }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 1.5s forwards;
+  }
+  .scroll-hint span {
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--lilla-light);
+  }
+  .scroll-line {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, var(--lilla), transparent);
+    animation: scrollPulse 2s ease infinite;
+  }
+  @keyframes scrollPulse {
+    0%, 100% { transform: scaleY(1); opacity: 1; }
+    50% { transform: scaleY(0.5); opacity: 0.5; }
+  }
+
+  /* 3D CANVAS */
+  #canvas3d {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* SECTIONS GENERAL */
+  section { position: relative; }
+
+  /* ABOUT / STORIA */
+  .storia {
+    padding: 140px 0;
+    background: linear-gradient(180deg, var(--bg) 0%, var(--white) 50%, var(--bg) 100%);
+  }
+
+  .storia-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .storia-text .section-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--yellow-dark);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .storia-text h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--text);
+    margin-bottom: 32px;
+  }
+  .storia-text h2 em { font-style: italic; color: var(--lilla); }
+
+  .storia-text p {
+    font-size: 0.82rem;
+    line-height: 2;
+    letter-spacing: 0.04em;
+    color: var(--text-light);
+    margin-bottom: 20px;
+  }
+
+  /* NEUMORPHIC CARD */
+  .neu-card {
+    background: var(--bg);
+    border-radius: 32px;
+    box-shadow: 18px 18px 36px rgba(148, 112, 206, 0.2), -12px -12px 24px rgba(255, 255, 255, 0.9);
+    padding: 48px;
+    position: relative;
+  }
+
+  .storia-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .stat-card {
+    background: var(--bg);
+    border-radius: 24px;
+    box-shadow: 12px 12px 24px rgba(148, 112, 206, 0.18), -8px -8px 18px rgba(255, 255, 255, 0.9);
+    padding: 32px 36px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    transition: all 0.4s ease;
+    overflow: hidden;
+    position: relative;
+  }
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--lilla), var(--yellow));
+  }
+  .stat-card:hover {
+    box-shadow: 18px 18px 36px rgba(148, 112, 206, 0.25), -8px -8px 20px rgba(255, 255, 255, 0.95);
+    transform: translateX(6px);
+  }
+  .stat-icon {
+    font-size: 2rem;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--lilla-pale), var(--white));
+    border-radius: 16px;
+    flex-shrink: 0;
+  }
+  .stat-text .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--lilla);
+    line-height: 1;
+  }
+  .stat-text .label {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-top: 4px;
+  }
+
+  /* PARALLAX QUOTE */
+  .parallax-quote {
+    padding: 160px 48px;
+    background: linear-gradient(135deg, var(--lilla-dark) 0%, var(--lilla) 50%, #b08ae0 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .parallax-quote .bg-text {
+    position: absolute;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22vw;
+    font-weight: 600;
+    color: rgba(255,255,255,0.04);
+    white-space: nowrap;
+    letter-spacing: -0.05em;
+    pointer-events: none;
+    will-change: transform;
+  }
+  .quote-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+  }
+  .quote-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 8rem;
+    color: var(--yellow);
+    line-height: 0.5;
+    margin-bottom: 20px;
+    display: block;
+    opacity: 0.7;
+  }
+  .quote-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 4vw, 3.2rem);
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255,255,255,0.95);
+    line-height: 1.5;
+    margin-bottom: 32px;
+  }
+  .quote-author {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--yellow);
+  }
+
+  /* MISSION SCROLLYTELLING */
+  .mission {
+    padding: 140px 0;
+  }
+  .mission-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+  .mission-header {
+    text-align: center;
+    margin-bottom: 100px;
+  }
+  .mission-header .section-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--lilla);
+    display: block;
+    margin-bottom: 16px;
+  }
+  .mission-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    color: var(--text);
+  }
+  .mission-header h2 em { font-style: italic; color: var(--yellow-dark); }
+
+  .mission-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .mission-item {
+    background: var(--bg);
+    border-radius: 28px;
+    box-shadow: 14px 14px 28px rgba(148, 112, 206, 0.18), -10px -10px 20px rgba(255, 255, 255, 0.9);
+    padding: 44px 36px;
+    text-align: center;
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  .mission-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .mission-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--lilla), var(--yellow));
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+  }
+  .mission-item:hover::after { transform: scaleX(1); }
+  .mission-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 20px 24px 40px rgba(148, 112, 206, 0.22), -10px -10px 24px rgba(255, 255, 255, 0.95);
+  }
+  .mission-emoji {
+    font-size: 2.8rem;
+    margin-bottom: 24px;
+    display: block;
+  }
+  .mission-item h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+  .mission-item p {
+    font-size: 0.78rem;
+    line-height: 1.9;
+    letter-spacing: 0.03em;
+    color: var(--text-light);
+  }
+
+  /* EVENTS */
+  .eventi {
+    padding: 140px 0;
+    background: linear-gradient(180deg, var(--bg) 0%, #ede4f8 100%);
+  }
+  .eventi-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+  .eventi-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 64px;
+  }
+  .eventi-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    color: var(--text);
+    max-width: 400px;
+  }
+  .eventi-header h2 em { font-style: italic; color: var(--lilla); }
+  .eventi-header .section-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--yellow-dark);
+    display: block;
+    margin-bottom: 12px;
+  }
+  .see-all {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--lilla);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: gap 0.3s ease;
+  }
+  .see-all:hover { gap: 14px; }
+
+  .eventi-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .evento-card {
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 10px 10px 24px rgba(148, 112, 206, 0.14), -6px -6px 16px rgba(255, 255, 255, 0.95);
+    padding: 32px 40px;
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    gap: 32px;
+    align-items: center;
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateX(-30px);
+    text-decoration: none;
+    color: inherit;
+  }
+  .evento-card.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .evento-card:hover {
+    transform: translateX(8px);
+    box-shadow: 14px 14px 32px rgba(148, 112, 206, 0.2), -6px -6px 20px rgba(255, 255, 255, 0.98);
+  }
+  .evento-date {
+    text-align: center;
+  }
+  .evento-date .day {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: var(--lilla);
+    line-height: 1;
+  }
+  .evento-date .month {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+  .evento-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .evento-info p {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--text-light);
+  }
+  .evento-tag {
+    padding: 8px 20px;
+    background: linear-gradient(135deg, var(--lilla-pale), #f0e8ff);
+    border-radius: 50px;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--lilla-dark);
+    white-space: nowrap;
+  }
+
+  /* GALLERY PARALLAX */
+  .gallery {
+    padding: 140px 0;
+    overflow: hidden;
+  }
+  .gallery-header {
+    text-align: center;
+    margin-bottom: 80px;
+    padding: 0 48px;
+  }
+  .gallery-header .section-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--yellow-dark);
+    display: block;
+    margin-bottom: 16px;
+  }
+  .gallery-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    color: var(--text);
+  }
+  .gallery-header h2 em { font-style: italic; color: var(--lilla); }
+
+  .gallery-track {
+    display: flex;
+    gap: 24px;
+    padding: 0 48px;
+    will-change: transform;
+  }
+
+  .gallery-item {
+    flex-shrink: 0;
+    width: 320px;
+    height: 420px;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 14px 14px 32px rgba(148, 112, 206, 0.2), -6px -6px 16px rgba(255, 255, 255, 0.8);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .gallery-item:hover {
+    transform: scale(1.03) translateY(-6px);
+    box-shadow: 20px 24px 44px rgba(148, 112, 206, 0.28), -6px -6px 20px rgba(255, 255, 255, 0.9);
+  }
+  .gallery-item .img-placeholder {
+    width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .gallery-item .img-placeholder .icon { font-size: 2.5rem; opacity: 0.5; }
+  .gallery-item .img-placeholder span { opacity: 0.5; }
+
+  .gi-1 .img-placeholder { background: linear-gradient(135deg, #d4c4f0, #e8dff7); color: var(--lilla-dark); }
+  .gi-2 .img-placeholder { background: linear-gradient(135deg, #f7e58a, #faf0c0); color: #8a7010; }
+  .gi-3 .img-placeholder { background: linear-gradient(135deg, #c4a8e8, #ddd0f7); color: var(--lilla-dark); }
+  .gi-4 .img-placeholder { background: linear-gradient(135deg, #f0e8a0, #f7f0c8); color: #8a7010; }
+  .gi-5 .img-placeholder { background: linear-gradient(135deg, #b8a0e0, #d4c4f0); color: var(--lilla-dark); }
+  .gi-6 .img-placeholder { background: linear-gradient(135deg, #ede880, #f7f2b8); color: #8a7010; }
+
+  .gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(106, 79, 160, 0.7) 0%, transparent 60%);
+    display: flex;
+    align-items: flex-end;
+    padding: 24px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+  .gallery-overlay span {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+  }
+
+  /* DONATION */
+  .donazione {
+    padding: 140px 48px;
+    background: linear-gradient(135deg, #f8f4ff 0%, var(--bg) 100%);
+  }
+  .donazione-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .donazione .section-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--lilla);
+    display: block;
+    margin-bottom: 20px;
+  }
+  .donazione h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    color: var(--text);
+    margin-bottom: 24px;
+    line-height: 1.2;
+  }
+  .donazione h2 em { font-style: italic; color: var(--yellow-dark); }
+  .donazione p {
+    font-size: 0.82rem;
+    line-height: 2;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto 56px;
+    letter-spacing: 0.04em;
+  }
+
+  .donation-amounts {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+  .amount-btn {
+    background: var(--bg);
+    border: none;
+    border-radius: 16px;
+    box-shadow: 8px 8px 16px rgba(148, 112, 206, 0.18), -6px -6px 12px rgba(255, 255, 255, 0.9);
+    padding: 20px 32px;
+    cursor: none;
+    transition: all 0.3s ease;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--lilla);
+    position: relative;
+  }
+  .amount-btn:hover, .amount-btn.active {
+    box-shadow: inset 4px 4px 10px rgba(148, 112, 206, 0.2), inset -3px -3px 8px rgba(255, 255, 255, 0.8);
+    color: var(--lilla-dark);
+    transform: none;
+  }
+  .amount-btn .suffix {
+    font-size: 0.9rem;
+    vertical-align: super;
+    margin-left: 2px;
+  }
+
+  .donate-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 56px;
+    background: linear-gradient(135deg, var(--yellow) 0%, var(--yellow-dark) 100%);
+    color: var(--text);
+    border: none;
+    border-radius: 50px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    cursor: none;
+    box-shadow: 10px 10px 24px rgba(239, 207, 32, 0.35), -6px -6px 16px rgba(255, 255, 255, 0.7);
+    transition: all 0.4s ease;
+  }
+  .donate-cta:hover {
+    transform: translateY(-4px);
+    box-shadow: 14px 18px 32px rgba(239, 207, 32, 0.4), -6px -6px 20px rgba(255, 255, 255, 0.8);
+  }
+
+  /* CONTACT */
+  .contatti {
+    padding: 140px 48px;
+    background: var(--bg);
+  }
+  .contatti-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .contatti-text .section-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--yellow-dark);
+    display: block;
+    margin-bottom: 20px;
+  }
+  .contatti-text h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 300;
+    color: var(--text);
+    margin-bottom: 24px;
+    line-height: 1.2;
+  }
+  .contatti-text h2 em { font-style: italic; color: var(--lilla); }
+  .contatti-text p {
+    font-size: 0.8rem;
+    line-height: 2;
+    color: var(--text-light);
+    margin-bottom: 40px;
+    letter-spacing: 0.04em;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    background: var(--bg);
+    border-radius: 16px;
+    box-shadow: 8px 8px 18px rgba(148, 112, 206, 0.15), -6px -6px 14px rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+  }
+  .contact-item:hover {
+    transform: translateX(6px);
+    box-shadow: 12px 12px 24px rgba(148, 112, 206, 0.2), -6px -6px 16px rgba(255, 255, 255, 0.95);
+  }
+  .contact-icon {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, var(--lilla), var(--lilla-light));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  .contact-item span {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+
+  .contatti-form {
+    background: var(--bg);
+    border-radius: 32px;
+    box-shadow: 20px 20px 40px rgba(148, 112, 206, 0.2), -14px -14px 28px rgba(255, 255, 255, 0.9);
+    padding: 48px;
+  }
+  .form-group {
+    margin-bottom: 28px;
+    position: relative;
+  }
+  .form-group label {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--lilla);
+    display: block;
+    margin-bottom: 10px;
+  }
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    background: var(--bg);
+    border: none;
+    border-radius: 14px;
+    padding: 16px 20px;
+    box-shadow: inset 4px 4px 10px rgba(148, 112, 206, 0.15), inset -3px -3px 8px rgba(255, 255, 255, 0.85);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.78rem;
+    color: var(--text);
+    letter-spacing: 0.05em;
+    outline: none;
+    transition: box-shadow 0.3s ease;
+    cursor: none;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus {
+    box-shadow: inset 6px 6px 14px rgba(148, 112, 206, 0.2), inset -4px -4px 10px rgba(255, 255, 255, 0.9), 0 0 0 2px rgba(148, 112, 206, 0.2);
+  }
+  .form-group textarea { resize: none; height: 120px; }
+  .form-submit {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, var(--lilla) 0%, var(--lilla-dark) 100%);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    cursor: none;
+    box-shadow: 8px 8px 20px rgba(148, 112, 206, 0.35), -4px -4px 12px rgba(255, 255, 255, 0.7);
+    transition: all 0.4s ease;
+  }
+  .form-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 12px 16px 28px rgba(148, 112, 206, 0.4), -4px -4px 14px rgba(255, 255, 255, 0.8);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--lilla-dark);
+    padding: 80px 48px 40px;
+    color: rgba(255,255,255,0.8);
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 64px;
+    margin-bottom: 64px;
+  }
+  .footer-brand .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .footer-brand .logo span { color: var(--yellow); }
+  .footer-brand p {
+    font-size: 0.75rem;
+    line-height: 1.9;
+    letter-spacing: 0.04em;
+    max-width: 280px;
+    opacity: 0.7;
+  }
+  .footer-col h4 {
+    font-size: 0.62rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 24px;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 12px; }
+  .footer-col ul a {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    transition: color 0.3s ease;
+  }
+  .footer-col ul a:hover { color: var(--yellow); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-bottom p {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    opacity: 0.5;
+  }
+  .footer-heart { color: var(--yellow); }
+
+  /* SOCIAL FLOAT */
+  .social-float {
+    position: fixed;
+    right: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 500;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .social-dot {
+    width: 36px; height: 36px;
+    background: var(--bg);
+    border-radius: 50%;
+    box-shadow: 5px 5px 12px rgba(148,112,206,0.2), -3px -3px 8px rgba(255,255,255,0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    cursor: none;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  .social-dot:hover {
+    box-shadow: inset 3px 3px 8px rgba(148,112,206,0.2), inset -2px -2px 6px rgba(255,255,255,0.8);
+    transform: scale(0.95);
+  }
+
+  /* PROGRESS BAR */
+  .progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--lilla), var(--yellow));
+    z-index: 2000;
+    transition: width 0.1s linear;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .storia-inner, .contatti-inner, .footer-top {
+      grid-template-columns: 1fr;
+    }
+    .mission-grid { grid-template-columns: 1fr; }
+    .footer-top { gap: 40px; }
+    nav { padding: 16px 24px; }
+    nav.scrolled { padding: 12px 24px; }
+    .nav-links { display: none; }
+    .evento-card { grid-template-columns: 60px 1fr; }
+    .evento-tag { display: none; }
+    .social-float { display: none; }
+  }
+
+  /* SCROLLYTELLING sticky section */
+  .scrolly-section {
+    position: relative;
+    height: calc(var(--scrolly-steps, 3) * 100vh);
+  }
+  .scrolly-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+  .scrolly-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, var(--bg) 0%, #f0eaff 100%);
+  }
+  .scrolly-step {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 48px;
+    opacity: 0;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(24px);
+    pointer-events: none;
+  }
+  .scrolly-step.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .scrolly-step-inner {
+    text-align: center;
+    max-width: 700px;
+  }
+  .scrolly-step-inner .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 8rem;
+    font-weight: 600;
+    color: rgba(148,112,206,0.08);
+    line-height: 1;
+    margin-bottom: -40px;
+  }
+  .scrolly-step-inner h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+  .scrolly-step-inner h3 em { font-style: italic; color: var(--lilla); }
+  .scrolly-step-inner p {
+    font-size: 0.82rem;
+    line-height: 2;
+    color: var(--text-light);
+    letter-spacing: 0.04em;
+  }
+  .scrolly-dots {
+    position: absolute;
+    bottom: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+  }
+  .scrolly-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--lilla-light);
+    transition: all 0.3s ease;
+  }
+  .scrolly-dot.active {
+    width: 24px;
+    border-radius: 4px;
+    background: var(--lilla);
+  }
+
+  /* LE SUE PASSIONI */
+  .passioni {
+    padding: 140px 0;
+    background: linear-gradient(180deg, var(--bg) 0%, #f5f0ff 100%);
+    overflow: hidden;
+  }
+  .passioni-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+  .passioni-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  .passioni-header .section-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--yellow-dark);
+    display: block;
+    margin-bottom: 16px;
+  }
+  .passioni-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+  .passioni-header h2 em { font-style: italic; color: var(--lilla); }
+  .passioni-header p {
+    font-size: 0.82rem;
+    line-height: 2;
+    color: var(--text-light);
+    max-width: 560px;
+    margin: 0 auto;
+    letter-spacing: 0.04em;
+  }
+
+  .passioni-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .passione-card {
+    border-radius: 32px;
+    overflow: hidden;
+    position: relative;
+    height: 560px;
+    cursor: none;
+    box-shadow: 16px 16px 36px rgba(148,112,206,0.22), -10px -10px 24px rgba(255,255,255,0.85);
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s ease, opacity 0.8s ease;
+    text-decoration: none;
+    display: block;
+  }
+  /* JS adds .js-ready to body, only then hide cards for animation */
+  body.js-ready .passione-card {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  body.js-ready .passione-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .passione-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 24px 32px 56px rgba(148,112,206,0.28), -10px -10px 28px rgba(255,255,255,0.9);
+  }
+
+  /* DANZA */
+  .card-danza { background: linear-gradient(160deg, #2a1040 0%, #4a1a70 40%, #9470CE 100%); }
+  /* SKATE */
+  .card-skate { background: linear-gradient(160deg, #1a1a2e 0%, #2d2d4a 40%, #4a3a7a 100%); }
+  /* SCOUT */
+  .card-scout { background: linear-gradient(160deg, #1a3020 0%, #2a5030 50%, #4a8040 100%); }
+
+  .passione-bg-canvas {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .passione-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 44px 36px;
+    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 55%);
+    transition: background 0.5s ease;
+  }
+  .passione-card:hover .passione-content {
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%);
+  }
+
+  .passione-icon-3d {
+    position: absolute;
+    top: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 4.5rem;
+    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.4));
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .passione-card:hover .passione-icon-3d {
+    transform: translateX(-50%) translateY(-10px) scale(1.1);
+  }
+
+  .passione-tag {
+    font-size: 0.58rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .passione-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.6rem;
+    font-weight: 300;
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 14px;
+  }
+  .passione-title em { font-style: italic; }
+  .card-danza .passione-title em { color: #c4a0ff; }
+  .card-skate .passione-title em { color: var(--yellow); }
+  .card-scout .passione-title em { color: #a0d880; }
+
+  .passione-desc {
+    font-size: 0.72rem;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.04em;
+    margin-bottom: 28px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.4s ease;
+    opacity: 0;
+  }
+  .passione-card:hover .passione-desc {
+    max-height: 80px;
+    opacity: 1;
+  }
+
+  .passione-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: white;
+    opacity: 0.6;
+    transition: opacity 0.3s ease, gap 0.3s ease;
+  }
+  .passione-card:hover .passione-link { opacity: 1; gap: 16px; }
+  .card-danza .passione-link { color: #c4a0ff; }
+  .card-skate .passione-link { color: var(--yellow); }
+  .card-scout .passione-link { color: #a0d880; }
+
+  @media (max-width: 900px) {
+    .passioni-grid { grid-template-columns: 1fr; }
+    .passione-card { height: 400px; }
+    .passione-desc { max-height: 60px; opacity: 1; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PROGRESS BAR -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo"><img style="height: 37px;" src="logo.png" alt="Vicky's House"></a>
+  <ul class="nav-links">
+    <li><a href="#storia">La nostra storia</a></li>
+    <li><a href="#mission">Missione</a></li>
+    <li><a href="#passioni">Le sue passioni</a></li>
+    <li><a href="#eventi">Eventi</a></li>
+    <li><a href="#galleria">Galleria</a></li>
+    <li><a href="#donazioni">Sostienici</a></li>
+    <li><a href="#contatti">Contatti</a></li>
+  </ul>
+</nav>
+
+<!-- SOCIAL FLOAT -->
+<div class="social-float">
+  <a href="#" class="social-dot" title="Instagram">𝕀</a>
+  <a href="#" class="social-dot" title="Facebook">𝔽</a>
+  <a href="#" class="social-dot" title="Email">✉</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <canvas id="canvas3d"></canvas>
+  <div class="petals-container" id="petalsContainer"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Associazione di promozione sociale</p>
+    <h1 class="hero-title">
+      <em>Vicky's</em><br>
+      <span class="accent">House</span>
+    </h1>
+    <p class="hero-subtitle">Celebrare la vita &mdash; Portare luce nel mondo</p>
+    <a href="#storia" class="hero-cta">
+      Scopri la nostra storia
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+  <div class="scroll-hint">
+    <span>Scorri</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- STORIA -->
+<section class="storia" id="storia">
+  <div class="storia-inner">
+    <div class="storia-text reveal-left">
+      <span class="section-label">La nostra storia</span>
+      <h2>Nata dall'<em>amore</em>,<br>vive nell'amore</h2>
+      <p>Vicky's House è nata dal desiderio dei genitori di Vicky di trasformare il dolore in qualcosa di meraviglioso. Un luogo — fisico e simbolico — dove la sua luce continua a brillare attraverso ogni persona che tocca.</p>
+      <p>Ogni progetto, ogni evento, ogni sorriso che generiamo porta con sé un pezzo di lei. Perché chi è amato non scompare davvero — vive in ogni gesto di gentilezza che ispira.</p>
+      <p>Questa casa è aperta a tutti. È un rifugio, una celebrazione, un promemoria che la vita, anche nella sua brevità, può essere straordinariamente bella.</p>
+    </div>
+    <div class="storia-visual reveal-right">
+      <div class="stat-card">
+        <div class="stat-icon">🌸</div>
+        <div class="stat-text">
+          <div class="num" data-count="0">0</div>
+          <div class="label">Eventi celebrati</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">✨</div>
+        <div class="stat-text">
+          <div class="num" data-count="40">0</div>
+          <div class="label">Persone coinvolte</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">💛</div>
+        <div class="stat-text">
+          <div class="num" data-count="0">0</div>
+          <div class="label">Anni di attività</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🎗️</div>
+        <div class="stat-text">
+          <div class="num" data-count="0">0</div>
+          <div class="label">Borse di studio erogate</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE PARALLAX -->
+<div class="parallax-quote" id="parallaxQuote">
+  <div class="bg-text" id="bgText">VICKY</div>
+  <div class="quote-content reveal">
+    <span class="quote-mark">"</span>
+    <p class="quote-text">La vita non si misura nei respiri che prendiamo, ma nei momenti che ci tolgono il respiro.</p>
+    <p class="quote-author">— Con amore, per Vicky</p>
+  </div>
+</div>
+
+<!-- SCROLLYTELLING 
+<div class="scrolly-section" id="scrollySection">
+  <div class="scrolly-sticky">
+    <div class="scrolly-bg"></div>
+    
+    <div class="scrolly-step" id="step-0">
+      <div class="scrolly-step-inner">
+        <div class="step-num">01</div>
+        <h3>La <em>memoria</em> come dono</h3>
+        <p>Ricordare Vicky non è guardare indietro. È portare avanti tutto ciò che lei era — la sua curiosità, la sua gentilezza, il suo sorriso contagioso — e lasciare che quella luce illumini il presente.</p>
+      </div>
+    </div>
+
+    <div class="scrolly-step" id="step-1">
+      <div class="scrolly-step-inner">
+        <div class="step-num">02</div>
+        <h3>La comunità come <em>famiglia</em></h3>
+        <p>Vicky's House è un punto di incontro per chi vuole fare del bene, per chi cerca conforto e per chi desidera celebrare la vita in tutte le sue forme. Siamo una famiglia allargata, unita dall'amore.</p>
+      </div>
+    </div>
+
+    <div class="scrolly-step" id="step-2">
+      <div class="scrolly-step-inner">
+        <div class="step-num">03</div>
+        <h3>Il futuro come <em>impegno</em></h3>
+        <p>Ogni anno cresciamo. Ogni iniziativa semina qualcosa di duraturo. Ci impegniamo a costruire un futuro dove il suo ricordo ispiri giovani, artisti, sognatori — chiunque abbia bisogno di sapere che ne vale la pena.</p>
+      </div>
+    </div>
+
+    <div class="scrolly-dots" id="scrollyDots">
+      <div class="scrolly-dot active" data-step="0"></div>
+      <div class="scrolly-dot" data-step="1"></div>
+      <div class="scrolly-dot" data-step="2"></div>
+    </div>
+  </div>
+</div> -->
+
+<!-- MISSION -->
+<section class="mission" id="mission">
+  <div class="mission-inner">
+    <div class="mission-header reveal">
+      <span class="section-label">Cosa facciamo</span>
+      <h2>La nostra <em>missione</em></h2>
+    </div>
+    <div class="mission-grid">
+      <div class="mission-item" style="transition-delay: 0s;">
+        <span class="mission-emoji">🎓</span>
+        <h3>Borse di Studio</h3>
+        <p>Sosteniamo giovani talenti con borse di studio annuali, perché ogni sogno merita la possibilità di diventare realtà. L'educazione era cara a Vicky — lo è anche a noi.</p>
+      </div>
+      <div class="mission-item" style="transition-delay: 0.15s;">
+        <span class="mission-emoji">🎨</span>
+        <h3>Arte & Cultura</h3>
+        <p>Organizziamo eventi culturali, mostre e performance che celebrano la creatività. L'arte è il linguaggio dell'anima, e Vicky parlava quella lingua meravigliosamente.</p>
+      </div>
+      <div class="mission-item" style="transition-delay: 0.3s;">
+        <span class="mission-emoji">🤝</span>
+        <h3>Supporto alla Comunità</h3>
+        <p>Creiamo spazi di incontro, ascolto e sostegno per famiglie e individui che attraversano momenti difficili. Nessuno dovrebbe sentirsi solo nel dolore.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LE SUE PASSIONI -->
+<section class="passioni" id="passioni">
+  <div class="passioni-inner">
+    <div class="passioni-header reveal">
+      <span class="section-label">Chi era Vicky</span>
+      <h2>Le sue <em>passioni</em></h2>
+      <p>Vicky viveva intensamente, con tutto il corpo e tutta l'anima. La danza, lo skate e gli scout non erano solo hobby — erano il modo in cui lei diceva al mondo chi fosse.</p>
+    </div>
+    <div class="passioni-grid">
+
+      <!-- DANZA -->
+      <a href="danza.html" class="passione-card card-danza" style="transition-delay:0s;">
+        <canvas class="passione-bg-canvas" id="canvasDanza"></canvas>
+        <div class="passione-icon-3d">🩰</div>
+        <div class="passione-content">
+          <span class="passione-tag">Passione · 01</span>
+          <h3 class="passione-title">La <em>Danza</em></h3>
+          <p class="passione-desc">Il movimento era il suo linguaggio segreto. Ogni passo, ogni giro, ogni salto era una frase di un racconto che solo lei sapeva scrivere.</p>
+          <span class="passione-link">Scopri →</span>
+        </div>
+      </a>
+
+      <!-- SKATE -->
+      <a href="skate.html" class="passione-card card-skate" style="transition-delay:0.15s;">
+        <canvas class="passione-bg-canvas" id="canvasSkate"></canvas>
+        <div class="passione-icon-3d">🛹</div>
+        <div class="passione-content">
+          <span class="passione-tag">Passione · 02</span>
+          <h3 class="passione-title">Lo <em>Skate</em></h3>
+          <p class="passione-desc">Libertà su quattro ruote. Vicky affrontava i salti con la stessa audacia con cui affrontava la vita — senza paura, con stile.</p>
+          <span class="passione-link">Scopri →</span>
+        </div>
+      </a>
+
+      <!-- SCOUT -->
+      <a href="scout.html" class="passione-card card-scout" style="transition-delay:0.3s;">
+        <canvas class="passione-bg-canvas" id="canvasScout"></canvas>
+        <div class="passione-icon-3d">⚜️</div>
+        <div class="passione-content">
+          <span class="passione-tag">Passione · 03</span>
+          <h3 class="passione-title">Gli <em>Scout</em></h3>
+          <p class="passione-desc">La natura, il senso del gruppo, il servire gli altri. Nel fazzoletto scout Vicky aveva trovato una tribù e un modo di essere nel mondo.</p>
+          <span class="passione-link">Scopri →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- EVENTI -->
+<section class="eventi" id="eventi">
+  <div class="eventi-inner">
+    <div class="eventi-header">
+      <div>
+        <span class="section-label">Calendario</span>
+        <h2>Prossimi <em>eventi</em></h2>
+      </div>
+      <a href="#" class="see-all">
+        Tutti gli eventi
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+    <div class="eventi-list">
+      <a href="#" class="evento-card">
+        <div class="evento-date">
+          <div class="day">15</div>
+          <div class="month">Apr</div>
+        </div>
+        <div class="evento-info">
+          <h3>Concerto della Memoria</h3>
+          <p>📍 Teatro Comunale — ore 21:00</p>
+        </div>
+        <div class="evento-tag">Musica</div>
+      </a>
+      <a href="#" class="evento-card">
+        <div class="evento-date">
+          <div class="day">28</div>
+          <div class="month">Apr</div>
+        </div>
+        <div class="evento-info">
+          <h3>Mostra Fotografica "Luce"</h3>
+          <p>📍 Galleria Centrale — ore 18:00</p>
+        </div>
+        <div class="evento-tag">Arte</div>
+      </a>
+      <a href="#" class="evento-card">
+        <div class="evento-date">
+          <div class="day">10</div>
+          <div class="month">Mag</div>
+        </div>
+        <div class="evento-info">
+          <h3>Cerimonia Borse di Studio 2026</h3>
+          <p>📍 Auditorium Municipale — ore 16:00</p>
+        </div>
+        <div class="evento-tag">Formazione</div>
+      </a>
+      <a href="#" class="evento-card">
+        <div class="evento-date">
+          <div class="day">22</div>
+          <div class="month">Mag</div>
+        </div>
+        <div class="evento-info">
+          <h3>Passeggiata della Vita</h3>
+          <p>📍 Parco Centrale — ore 10:00</p>
+        </div>
+        <div class="evento-tag">Comunità</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="galleria">
+  <div class="gallery-header reveal">
+    <span class="section-label">Momenti</span>
+    <h2>La nostra <em>galleria</em></h2>
+  </div>
+  <div class="gallery-track" id="galleryTrack">
+    <div class="gallery-item gi-1">
+      <div class="img-placeholder"><span class="icon">🌸</span><span>Concerto 2025</span></div>
+      <div class="gallery-overlay"><span>Aprile 2025</span></div>
+    </div>
+    <div class="gallery-item gi-2">
+      <div class="img-placeholder"><span class="icon">✨</span><span>Mostra Arte</span></div>
+      <div class="gallery-overlay"><span>Marzo 2025</span></div>
+    </div>
+    <div class="gallery-item gi-3">
+      <div class="img-placeholder"><span class="icon">🎓</span><span>Borse di Studio</span></div>
+      <div class="gallery-overlay"><span>Maggio 2024</span></div>
+    </div>
+    <div class="gallery-item gi-4">
+      <div class="img-placeholder"><span class="icon">🌻</span><span>Passeggiata</span></div>
+      <div class="gallery-overlay"><span>Giugno 2024</span></div>
+    </div>
+    <div class="gallery-item gi-5">
+      <div class="img-placeholder"><span class="icon">🎵</span><span>Serata Musicale</span></div>
+      <div class="gallery-overlay"><span>Dicembre 2024</span></div>
+    </div>
+    <div class="gallery-item gi-6">
+      <div class="img-placeholder"><span class="icon">💛</span><span>Comunità</span></div>
+      <div class="gallery-overlay"><span>Ottobre 2024</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- DONATION -->
+<section class="donazione" id="donazioni">
+  <div class="donazione-inner">
+    <span class="section-label reveal">Sostienici</span>
+    <h2 class="reveal">Il tuo gesto fa <em>la differenza</em></h2>
+    <p class="reveal">Ogni contributo ci permette di organizzare eventi, erogare borse di studio e supportare la comunità. Dona oggi e diventa parte di questa storia d'amore.</p>
+    <div class="donation-amounts reveal">
+      <button class="amount-btn" onclick="selectAmount(this)">10<span class="suffix">€</span></button>
+      <button class="amount-btn active" onclick="selectAmount(this)">25<span class="suffix">€</span></button>
+      <button class="amount-btn" onclick="selectAmount(this)">50<span class="suffix">€</span></button>
+      <button class="amount-btn" onclick="selectAmount(this)">100<span class="suffix">€</span></button>
+    </div>
+    <button class="donate-cta reveal">
+      💛 Dona ora
+    </button>
+  </div>
+</section>
+
+<!-- CONTATTI -->
+<section class="contatti" id="contatti">
+  <div class="contatti-inner">
+    <div class="contatti-text reveal-left">
+      <span class="section-label">Contattaci</span>
+      <h2>Siamo qui<br>per <em>te</em></h2>
+      <p>Vuoi partecipare ai nostri eventi, collaborare con noi o semplicemente saperne di più? Scrivici — ogni messaggio è accolto con il calore che Vicky avrebbe portato.</p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a0c9cec6cfe0d6c9c3cbd9d3c8cfd5d3c58ec9d4">[email&#160;protected]</a></span>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <span>Via della Luce 42, Italia</span>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <span>+39 000 000 0000</span>
+        </div>
+      </div>
+    </div>
+    <div class="contatti-form reveal-right">
+      <div class="form-group">
+        <label>Il tuo nome</label>
+        <input type="text" placeholder="Come ti chiami?">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="La tua email">
+      </div>
+      <div class="form-group">
+        <label>Messaggio</label>
+        <textarea placeholder="Cosa vorresti dirci?"></textarea>
+      </div>
+      <button class="form-submit">Invia il messaggio</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo">Vicky's <span>House</span></span>
+        <p>Un'associazione nata dall'amore, che vive nell'amore. Ogni giorno portiamo avanti il ricordo di Vicky attraverso azioni concrete di bellezza e gentilezza.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Link rapidi</h4>
+        <ul>
+          <li><a href="#storia">La nostra storia</a></li>
+          <li><a href="#mission">Missione</a></li>
+          <li><a href="#eventi">Eventi</a></li>
+          <li><a href="#galleria">Galleria</a></li>
+          <li><a href="#donazioni">Donazioni</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Informazioni</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Statuto</a></li>
+          <li><a href="#">Bilancio sociale</a></li>
+          <li><a href="#">Newsletter</a></li>
+          <li><a href="#contatti">Contatti</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Vicky's House APS — Tutti i diritti riservati</p>
+      <p>Fatto con <span class="footer-heart">♥</span> per Vicky</p>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// === CURSOR ===
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx + 'px';
+  cursor.style.top = my + 'px';
+});
+
+function animateRing() {
+  rx += (mx - rx) * 0.12;
+  ry += (my - ry) * 0.12;
+  ring.style.left = rx + 'px';
+  ring.style.top = ry + 'px';
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+
+document.querySelectorAll('a, button, .mission-item, .stat-card, .gallery-item').forEach(el => {
+  el.addEventListener('mouseenter', () => { cursor.classList.add('hover'); ring.classList.add('hover'); });
+  el.addEventListener('mouseleave', () => { cursor.classList.remove('hover'); ring.classList.remove('hover'); });
+});
+
+// === PROGRESS BAR ===
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('progressBar').style.width = pct + '%';
+});
+
+// === NAV SCROLL ===
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// === PETALS ===
+const container = document.getElementById('petalsContainer');
+const colors = ['rgba(148,112,206,0.35)', 'rgba(239,207,32,0.5)', 'rgba(185,157,224,0.4)', 'rgba(247,232,122,0.45)'];
+for (let i = 0; i < 18; i++) {
+  const p = document.createElement('div');
+  p.className = 'petal';
+  const size = Math.random() * 12 + 6;
+  p.style.cssText = `
+    width:${size}px; height:${size}px;
+    background:${colors[Math.floor(Math.random()*colors.length)]};
+    left:${Math.random()*100}%;
+    animation-duration:${Math.random()*12+8}s;
+    animation-delay:${Math.random()*8}s;
+    filter: blur(${Math.random()*1}px);
+  `;
+  container.appendChild(p);
+}
+
+// === 3D CANVAS ===
+const canvas = document.getElementById('canvas3d');
+const ctx = canvas.getContext('2d');
+let W, H;
+
+function resize3d() {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+}
+resize3d();
+window.addEventListener('resize', resize3d);
+
+class Sphere {
+  constructor(x, y, z, r, color1, color2) {
+    this.ox = x; this.oy = y;
+    this.x = x; this.y = y; this.z = z;
+    this.r = r; this.c1 = color1; this.c2 = color2;
+    this.vx = (Math.random()-0.5)*0.4;
+    this.vy = (Math.random()-0.5)*0.4;
+    this.angle = Math.random()*Math.PI*2;
+    this.speed = (Math.random()*0.003+0.001);
+    this.radius = Math.random()*80+40;
+  }
+  update(t) {
+    this.angle += this.speed;
+    this.x = this.ox + Math.cos(this.angle)*this.radius;
+    this.y = this.oy + Math.sin(this.angle*0.7)*this.radius*0.5;
+  }
+  draw() {
+    const scale = (this.z + 600) / 600;
+    const sr = this.r * scale;
+    const grad = ctx.createRadialGradient(this.x-sr*0.3, this.y-sr*0.3, sr*0.1, this.x, this.y, sr);
+    grad.addColorStop(0, 'rgba(255,255,255,0.5)');
+    grad.addColorStop(0.3, this.c1);
+    grad.addColorStop(1, this.c2);
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, sr, 0, Math.PI*2);
+    ctx.fillStyle = grad;
+    ctx.fill();
+  }
+}
+
+const spheres = [
+  new Sphere(W*0.12, H*0.2, 0, 55, 'rgba(148,112,206,0.25)', 'rgba(106,79,160,0.05)'),
+  new Sphere(W*0.85, H*0.15, -100, 40, 'rgba(239,207,32,0.3)', 'rgba(200,173,16,0.05)'),
+  new Sphere(W*0.75, H*0.75, 50, 70, 'rgba(185,157,224,0.2)', 'rgba(148,112,206,0.03)'),
+  new Sphere(W*0.2, H*0.8, -50, 35, 'rgba(247,232,122,0.25)', 'rgba(239,207,32,0.04)'),
+  new Sphere(W*0.5, H*0.1, 0, 25, 'rgba(148,112,206,0.2)', 'rgba(106,79,160,0.03)'),
+];
+
+let t3d = 0;
+function animate3d() {
+  ctx.clearRect(0,0,W,H);
+  t3d += 0.016;
+  spheres.forEach(s => { s.update(t3d); s.draw(); });
+  requestAnimationFrame(animate3d);
+}
+animate3d();
+
+// === PARALLAX QUOTE ===
+const bgText = document.getElementById('bgText');
+const pq = document.getElementById('parallaxQuote');
+window.addEventListener('scroll', () => {
+  const rect = pq.getBoundingClientRect();
+  const pct = -rect.top / (rect.height + window.innerHeight);
+  bgText.style.transform = `translateX(${pct * 120}px)`;
+});
+
+// === SCROLL REVEAL ===
+document.body.classList.add('js-ready');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.12 });
+
+function observeAll() {
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .mission-item, .evento-card, .passione-card').forEach(el => observer.observe(el));
+}
+observeAll();
+
+// === SCROLLYTELLING ===
+const scrollySection = document.getElementById('scrollySection');
+const steps = Array.from(document.querySelectorAll('.scrolly-step'));
+const dots = Array.from(document.querySelectorAll('.scrolly-dot'));
+
+if (scrollySection && steps.length) {
+  // +1 per dare respiro prima/dopo; puoi togliere il +1 se vuoi più veloce
+  scrollySection.style.setProperty('--scrolly-steps', steps.length + 1);
+
+  let ticking = false;
+
+  const updateScrolly = () => {
+    const rect = scrollySection.getBoundingClientRect();
+    const total = rect.height - window.innerHeight;
+
+    const progress = total > 0
+      ? Math.min(1, Math.max(0, -rect.top / total))
+      : 0;
+
+    const index = Math.min(steps.length - 1, Math.floor(progress * steps.length));
+
+    steps.forEach((s, i) => s.classList.toggle('active', i === index));
+    dots.forEach((d, i) => d.classList.toggle('active', i === index));
+
+    ticking = false;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateScrolly);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  window.addEventListener('resize', updateScrolly);
+  updateScrolly();
+}
+
+// === COUNT UP ANIMATION ===
+function countUp(el, target, duration) {
+  let start = 0;
+  const step = target / (duration / 16);
+  const timer = setInterval(() => {
+    start += step;
+    if (start >= target) { el.textContent = target.toLocaleString('it-IT'); clearInterval(timer); return; }
+    el.textContent = Math.floor(start).toLocaleString('it-IT');
+  }, 16);
+}
+
+const counterObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const target = parseInt(e.target.dataset.count);
+      countUp(e.target, target, 1500);
+      counterObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.num[data-count]').forEach(el => counterObs.observe(el));
+
+// === GALLERY HORIZONTAL SCROLL ===
+const track = document.getElementById('galleryTrack');
+let galleryX = 0;
+let targetGalleryX = 0;
+
+window.addEventListener('scroll', () => {
+  const sec = document.getElementById('galleria');
+  const rect = sec.getBoundingClientRect();
+  const prog = Math.max(0, Math.min(1, -rect.top / (sec.offsetHeight - window.innerHeight * 0.5)));
+  targetGalleryX = -prog * (track.scrollWidth - track.parentElement.offsetWidth) * 0.5;
+});
+
+function animateGallery() {
+  galleryX += (targetGalleryX - galleryX) * 0.08;
+  track.style.transform = `translateX(${galleryX}px)`;
+  requestAnimationFrame(animateGallery);
+}
+animateGallery();
+
+// === DONATION AMOUNT ===
+function selectAmount(btn) {
+  document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// === SMOOTH SCROLL LINKS ===
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// Form submit micro-interaction
+document.querySelector('.form-submit').addEventListener('click', function() {
+  this.textContent = '✓ Messaggio inviato!';
+  this.style.background = 'linear-gradient(135deg, #6aaa6a, #4a8a4a)';
+  setTimeout(() => {
+    this.textContent = 'Invia il messaggio';
+    this.style.background = '';
+  }, 3000);
+});
+
+// === PASSION CARD CANVASES ===
+function initPassionCanvas(id, particles) {
+  const c = document.getElementById(id);
+  if (!c) return;
+  const cx = c.getContext('2d');
+  let cw, ch;
+  function resize() { cw = c.width = c.offsetWidth; ch = c.height = c.offsetHeight; }
+  resize();
+  new ResizeObserver(resize).observe(c);
+  const pts = Array.from({length: 28}, () => ({
+    x: Math.random()*100, y: Math.random()*100,
+    vx: (Math.random()-.5)*0.12, vy: (Math.random()-.5)*0.12,
+    r: Math.random()*3+1, col: particles[Math.floor(Math.random()*particles.length)], o: Math.random()*0.5+0.1
+  }));
+  function draw() {
+    cx.clearRect(0,0,cw,ch);
+    pts.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x<0||p.x>100) p.vx*=-1;
+      if (p.y<0||p.y>100) p.vy*=-1;
+      cx.beginPath();
+      cx.arc(p.x/100*cw, p.y/100*ch, p.r, 0, Math.PI*2);
+      const col = p.col.replace('O', p.o.toString());
+      cx.fillStyle = col;
+      cx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+initPassionCanvas('canvasDanza', ['rgba(196,160,255,O)', 'rgba(148,112,206,O)', 'rgba(255,255,255,O)']);
+initPassionCanvas('canvasSkate', ['rgba(239,207,32,O)', 'rgba(200,180,80,O)', 'rgba(255,255,255,O)']);
+initPassionCanvas('canvasScout', ['rgba(100,200,80,O)', 'rgba(60,160,60,O)', 'rgba(200,255,150,O)']);
+</script>
+</body>
 </html>
